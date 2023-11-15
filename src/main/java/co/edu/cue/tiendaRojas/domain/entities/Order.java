@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orderId;
+    private int orderId;
     private LocalDateTime orderDate;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private Customer customer;
     private String empresa;

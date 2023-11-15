@@ -3,7 +3,7 @@ import co.edu.cue.tiendaRojas.domain.entities.Customer;
 
 import java.time.LocalDateTime;
 
-public record OrderDto (Long orderId,
+public record OrderDto (int orderId,
                         LocalDateTime orderDate,
                         Customer customer,
                         String empresa){
