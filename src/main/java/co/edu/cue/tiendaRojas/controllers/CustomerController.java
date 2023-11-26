@@ -7,27 +7,51 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
 
 @Controller
-@RequestMapping
+@RequestMapping("/customers")
 @AllArgsConstructor
 public class CustomerController {
-    private final CustomerService service;
+
+    private final CustomerService customerService;
 
     @GetMapping("/list")
-    public String listAllCustomer(Model model){
-        List<CustomerDto> customerList = service.list();
-        model.addAttribute("customerList", customerList);
-        return "index";
+    public String listCustomers(Model model) {
+        model.addAttribute("customerList", customerService.list());
+        return "customer/index";
     }
-    @GetMapping("/new")
-    public String add(Model model) {
+
+    @GetMapping("/create-form")
+    public String createCustomerForm(Model model) {
         model.addAttribute("customer", new Customer());
-        return "form";
+        return "customer/create";
     }
 
-}
+    @PostMapping("/create")
+    public String createCustomer(CustomerDto customer) {
+        customerService.save(customer);
+        return "redirect:/customers/list";
+    }
 
+    @GetMapping("/edit-form/{id}")
+    public String updateCustomerForm(Model model, @PathVariable int id) {
+        model.addAttribute("customer", customerService.getCustomerById(id));
+        return "customer/update";
+    }
+
+    @PostMapping("/update")
+    public String updateCustomer(CustomerDto customer) {
+        customerService.update(customer);
+        return "redirect:/customers/list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCustomer(@PathVariable int id) {
+        customerService.delete(id);
+        return "redirect:/customers/list";
+    }
+}

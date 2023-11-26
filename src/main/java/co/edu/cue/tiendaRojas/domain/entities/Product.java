@@ -12,7 +12,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private int productId;
+    private Long productId;
     private String name;
     private int price;
     private Boolean stock;

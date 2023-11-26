@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDto getProductById(int id) {
+    public ProductDto getProductById(Long id) {
         return ProductMapper.mapFrom(repository.findById(id).orElseThrow());
     }
 
@@ -42,7 +42,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         repository.deleteById(id);
     }
 }

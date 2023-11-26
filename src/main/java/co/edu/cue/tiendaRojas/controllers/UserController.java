@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @AllArgsConstructor
-@RequestMapping
+@RequestMapping("/user")
 @Controller
 public class UserController {
 
@@ -23,7 +23,7 @@ public class UserController {
     public String listAllUser(Model model){
         List<UserDto> userList = service.list();
         model.addAttribute("userList", userList);
-        return "index";
+        return "home";
     }
 
     @GetMapping("/new")
@@ -31,5 +31,4 @@ public class UserController {
         model.addAttribute("user", new User());
         return "form";
     }
-
 }
