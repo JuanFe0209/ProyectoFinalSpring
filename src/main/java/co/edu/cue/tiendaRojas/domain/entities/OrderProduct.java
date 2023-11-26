@@ -7,17 +7,17 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "order_product")
-public class Order_Product {
+public class OrderProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
-    @JoinColumn(name ="order_id", referencedColumnName = "order_id")
+    @JoinColumn(name ="order_id")
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     private int quantity;

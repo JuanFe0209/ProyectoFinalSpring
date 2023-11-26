@@ -1,11 +1,10 @@
 package co.edu.cue.tiendaRojas.domain.entities;
 import jakarta.persistence.*;
 import lombok.*;
-@Getter
-@Setter
+
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@Data
 @Entity
 @Table(name = "user")
 public class User {

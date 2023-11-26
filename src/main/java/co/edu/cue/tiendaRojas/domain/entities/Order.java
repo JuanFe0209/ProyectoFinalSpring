@@ -9,14 +9,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
     private int orderId;
     private LocalDateTime orderDate;
     @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     private String empresa;
 }
