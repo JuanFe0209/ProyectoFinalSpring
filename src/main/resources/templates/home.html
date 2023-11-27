@@ -4,21 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Zapatos</title>
+    <title>IShop - Bienvenido</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .jumbotron {
+            background-color: #007bff;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .feature-box {
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .feature-box:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Zapatería</a>
+    <a class="navbar-brand" href="#">IShop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" th:href="@{/}">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" th:href="@{/home}">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,7 +75,7 @@
                 <div class="dropdown-menu" aria-labelledby="orderDropdown">
                     <a class="dropdown-item" th:href="@{/orders/list}">Listado de Órdenes</a>
                     <a class="dropdown-item" th:href="@{/orders/create-form}">Crear Órden</a>
-                    <a class="dropdown-item" th:href="@{/orders/edit-form/{id}}">Actualizar Órden</a>
+                    <a class="dropdown-item" th:href="@{/orders/edit-form/{i}}">Actualizar Órden</a>
                     <div class="dropdown-divider"></div>
                 </div>
             </li>
@@ -58,11 +84,31 @@
 </nav>
 
 <div class="container mt-3">
-    <h1>Bienvenido a la Tienda de Zapatos</h1>
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenido a IShop</h1>
+        <p class="lead">¡Aquí encontrarás los mejores productos al mejor precio!</p>
+    </div>
 
-    <!-- Contenido principal -->
-    <!-- Puedes agregar aquí el contenido principal de tu página de inicio -->
-
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="feature-box" onclick="location.href='/products/list';">
+                <h3> Productos</h3>
+                <p>Descubre nuestra variedad de productos.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="feature-box" onclick="location.href='/customers/list';">
+                <h3>Clientes</h3>
+                <p>Explora nuestra base de clientes.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="feature-box" onclick="location.href='/orders/list';">
+                <h3> Órdenes</h3>
+                <p>Visualiza las órdenes realizadas.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

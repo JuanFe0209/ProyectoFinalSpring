@@ -36,7 +36,6 @@ public class SecurityConfig {
                                 .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults())
-                .formLogin(formLogin -> formLogin.successForwardUrl("/home"))
                 .build();
 
 
