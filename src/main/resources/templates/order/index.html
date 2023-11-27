@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrderList</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-3">
+    <h1>Listado de Órdenes</h1>
+
+    <table class="table">
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha de Orden</th>
+            <th>Cliente</th>
+            <th>Empresa</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="order : ${orderList}">
+            <td th:text="${order.orderId}"></td>
+            <td th:text="${order.orderDate}"></td>
+            <td th:text="${order.customer.name}"></td>
+            <td th:text="${order.empresa}"></td>
+
+            <td>
+                <a th:href="@{/orders/edit-form/{id}(id=${order.orderId})}" class="btn btn-warning">Editar</a>
+                <a th:href="@{/orders/delete/{id}(id=${order.orderId})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta orden?')">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <a th:href="@{/orders/create-form}" class="btn btn-success">Crear Orden</a>
+</div>
+
+
+</body>
+</html>

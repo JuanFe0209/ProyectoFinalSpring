@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-3">
+    <h1>Actualizar Cliente</h1>
+
+    <!-- Formulario para actualizar un cliente existente -->
+    <form th:action="@{/customers/update}" method="post" th:object="${customer}">
+        <input type="hidden" th:field="*{customerId}">
+        <!-- Campos del formulario -->
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Apellido:</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Dirección:</label>
+            <input type="text" class="form-control" id="address" th:field="*{address}" required>
+        </div>
+        <!-- Otros campos según tu entidad Customer -->
+        <!-- Botón de enviar formulario -->
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+</div>
+
+<!-- Scripts al final del cuerpo -->
+</body>
+</html>

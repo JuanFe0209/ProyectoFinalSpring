@@ -21,18 +21,37 @@
                 <a class="nav-link" th:href="@{/}">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Productos
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="productDropdown">
                     <a class="dropdown-item" th:href="@{/products/list}">Listado de Productos</a>
                     <a class="dropdown-item" th:href="@{/products/create-form}">Agregar Producto</a>
                     <a class="dropdown-item" th:href="@{/products/edit-form/{id}}">Actualizar Producto</a>
                     <div class="dropdown-divider"></div>
                 </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/}">Clientes<span class="sr-only">(current)</span></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Clientes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="customerDropdown">
+                    <a class="dropdown-item" th:href="@{/customers/list}">Listado de clientes</a>
+                    <a class="dropdown-item" th:href="@{/customers/create-form}">Agregar cliente</a>
+                    <a class="dropdown-item" th:href="@{/customers/edit-form/{id}}">Actualizar datos del cliente</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Órdenes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="orderDropdown">
+                    <a class="dropdown-item" th:href="@{/orders/list}">Listado de Órdenes</a>
+                    <a class="dropdown-item" th:href="@{/orders/create-form}">Crear Órden</a>
+                    <a class="dropdown-item" th:href="@{/orders/edit-form/{id}}">Actualizar Órden</a>
+                    <div class="dropdown-divider"></div>
+                </div>
             </li>
         </ul>
     </div>
