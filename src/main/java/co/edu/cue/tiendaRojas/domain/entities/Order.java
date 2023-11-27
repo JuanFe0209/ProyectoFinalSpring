@@ -14,7 +14,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    private int orderId;
+    private Long orderId;
     private LocalDateTime orderDate;
     @ManyToOne
     @JoinColumn(name = "customer_id")

@@ -23,7 +23,7 @@ public class OrderProductServiceImpl implements OrderProductService {
     }
 
     @Override
-    public OrderProductDto getOrder_ProductById(int id) {
+    public OrderProductDto getOrder_ProductById(Long id) {
         return OrderProductMapper.mapFrom(repository.findById(id).orElseThrow());
     }
 
@@ -42,7 +42,7 @@ public class OrderProductServiceImpl implements OrderProductService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         repository.deleteById(id);
 
     }

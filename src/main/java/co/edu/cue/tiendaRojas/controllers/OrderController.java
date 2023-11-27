@@ -41,7 +41,7 @@ public class OrderController {
     }
 
     @GetMapping("/edit-form/{id}")
-    public String updateOrderForm(Model model, @PathVariable int id){
+    public String updateOrderForm(Model model, @PathVariable Long id){
         model.addAttribute("order", orderService.getOrderById(id));
         model.addAttribute("customerList", customerService.list());
         return "order/update";
@@ -54,7 +54,7 @@ public class OrderController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteOrder(@PathVariable int id){
+    public String deleteOrder(@PathVariable Long id){
         orderService.delete(id);
         return "redirect:/orders/list";
     }

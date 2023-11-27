@@ -33,8 +33,9 @@
             color: #fff;
         }
         .navbar-brand img {
-            width: 50px; /* Ajusta el tamaño según tus preferencias */
-            height: auto; /* Mantiene la proporción original */
+            width: 50px;
+            height: auto;
+
         }
 
     </style>
@@ -59,7 +60,7 @@
                 <div class="dropdown-menu" aria-labelledby="productDropdown">
                     <a class="dropdown-item" th:href="@{/products/list}">Listado de Productos</a>
                     <a class="dropdown-item" th:href="@{/products/create-form}">Agregar Producto</a>
-                    <a class="dropdown-item" th:href="@{/products/edit-form/{id}}">Actualizar Producto</a>
+                    <a class="dropdown-item" th:href="@{/products/list}">Actualizar Producto</a>
                     <div class="dropdown-divider"></div>
                 </div>
             </li>
@@ -70,7 +71,7 @@
                 <div class="dropdown-menu" aria-labelledby="customerDropdown">
                     <a class="dropdown-item" th:href="@{/customers/list}">Listado de clientes</a>
                     <a class="dropdown-item" th:href="@{/customers/create-form}">Agregar cliente</a>
-                    <a class="dropdown-item" th:href="@{/customers/edit-form/{id}}">Actualizar datos del cliente</a>
+                    <a class="dropdown-item" th:href="@{/customers/list}">Actualizar datos del cliente</a>
                     <div class="dropdown-divider"></div>
                 </div>
             </li>
@@ -81,8 +82,17 @@
                 <div class="dropdown-menu" aria-labelledby="orderDropdown">
                     <a class="dropdown-item" th:href="@{/orders/list}">Listado de Órdenes</a>
                     <a class="dropdown-item" th:href="@{/orders/create-form}">Crear Órden</a>
-                    <a class="dropdown-item" th:href="@{/orders/edit-form/{i}}">Actualizar Órden</a>
+                    <a class="dropdown-item" th:href="@{/orders/list}">Actualizar Órden</a>
                     <div class="dropdown-divider"></div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="orderProductDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Facturas
+                </a>
+                <div class="dropdown-menu" aria-labelledby="orderProductDropdown">
+                    <a class="dropdown-item" th:href="@{/order-products/list}">Listado de Facturas</a>
+                    <a class="dropdown-item" th:href="@{/order-products/create-form}">Agregar nueva Factura</a>
                 </div>
             </li>
         </ul>
@@ -96,7 +106,7 @@
     </div>
 
     <div class="row">
-        <!-- Cartas para listar productos, clientes y órdenes -->
+
         <div class="col-lg-4">
             <div class="feature-box" onclick="location.href='/products/list';">
                 <h3> Productos</h3>
@@ -116,7 +126,6 @@
             </div>
         </div>
 
-        <!-- Cartas para crear productos, clientes y órdenes -->
         <div class="col-lg-4">
             <div class="feature-box" onclick="location.href='/products/create-form';">
                 <h3>Crear Producto</h3>
@@ -135,6 +144,21 @@
                 <p>Realiza una nueva orden de productos.</p>
             </div>
         </div>
+
+        <div class="col-lg-4">
+            <div class="feature-box" onclick="location.href='/order-products/list';">
+                <h3>Facturas</h3>
+                <p>Explora la lista de Facturas</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="feature-box" onclick="location.href='/order-products/create-form';">
+                <h3>Agregar Factura</h3>
+                <p>Añade una nueva factura.</p>
+            </div>
+        </div>
+
+
     </div>
 
 </div>

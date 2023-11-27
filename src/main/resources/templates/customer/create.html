@@ -13,9 +13,9 @@
 <div class="container mt-3">
   <h1>Crear Cliente</h1>
 
-  <!-- Formulario para crear un nuevo cliente -->
+
   <form th:action="@{/customers/create}" method="post" th:object="${customer}">
-    <!-- Campos del formulario -->
+
     <div class="form-group">
       <label for="name">Nombre:</label>
       <input type="text" class="form-control" id="name" th:field="*{name}" required>
@@ -35,6 +35,7 @@
 
     <button type="submit" class="btn btn-primary">Guardar</button>
     <a th:href="@{/home}" class="btn btn-primary">Ir al Home</a>
+    <a th:href="@{/customers/list}" class="btn btn-primary">Ir a la lista de clientes</a>
   </form>
 </div>
 

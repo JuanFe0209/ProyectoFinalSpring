@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturas</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+</nav>
+
+<div class="container mt-3">
+    <h1>Listado de Facturas</h1>
+
+    <table class="table">
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Orden</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="orderProduct : ${orderProductList}">
+            <td th:text="${orderProduct.id}"></td>
+            <td th:text="${orderProduct.order.id}"></td>
+            <td th:text="${orderProduct.product.name}"></td>
+            <td th:text="${orderProduct.quantity}"></td>
+            <td th:text="${orderProduct.unitPrice}"></td>
+            <td th:text="${orderProduct.totalPrice}"></td>
+            <td>
+                <a th:href="@{/order-products/edit-form/{id}(id=${orderProduct.id})}" class="btn btn-warning">Editar</a>
+                <a th:href="@{/order-products/delete/{id}(id=${orderProduct.id})}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto de la orden?')">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/order-products/create-form}" class="btn btn-success">Agregar OrderProduct</a>
+    <a th:href="@{/home}" class="btn btn-primary">Ir al Inicio</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

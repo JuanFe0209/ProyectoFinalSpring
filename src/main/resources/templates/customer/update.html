@@ -13,10 +13,10 @@
 <div class="container mt-3">
     <h1>Actualizar Cliente</h1>
 
-    <!-- Formulario para actualizar un cliente existente -->
+
     <form th:action="@{/customers/update}" method="post" th:object="${customer}">
         <input type="hidden" th:field="*{customerId}">
-        <!-- Campos del formulario -->
+
         <div class="form-group">
             <label for="name">Nombre:</label>
             <input type="text" class="form-control" id="name" th:field="*{name}" required>
@@ -33,12 +33,11 @@
             <label for="address">Dirección:</label>
             <input type="text" class="form-control" id="address" th:field="*{address}" required>
         </div>
-        <!-- Otros campos según tu entidad Customer -->
-        <!-- Botón de enviar formulario -->
+
         <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a th:href="@{/customers/list}" class="btn btn-primary">Ir a la lista de clientes</a>
     </form>
 </div>
 
-<!-- Scripts al final del cuerpo -->
 </body>
 </html>

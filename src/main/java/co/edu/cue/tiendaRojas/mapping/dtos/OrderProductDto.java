@@ -3,7 +3,7 @@ import co.edu.cue.tiendaRojas.domain.entities.Order;
 import co.edu.cue.tiendaRojas.domain.entities.Product;
 
 
-public record OrderProductDto(int id,
+public record OrderProductDto(Long id,
                               Order order,
                               Product product,
                               int quantity,
