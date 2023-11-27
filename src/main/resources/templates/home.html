@@ -32,11 +32,17 @@
             background-color: #007bff;
             color: #fff;
         }
+        .navbar-brand img {
+            width: 50px; /* Ajusta el tamaño según tus preferencias */
+            height: auto; /* Mantiene la proporción original */
+        }
+
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="https://e7.pngegg.com/pngimages/522/512/png-clipart-e-commerce-2018-online-shopping-amazon-com-supermercado-text-retail-thumbnail.png" alt="Logo de IShop"></a>
     <a class="navbar-brand" href="#">IShop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -90,6 +96,7 @@
     </div>
 
     <div class="row">
+        <!-- Cartas para listar productos, clientes y órdenes -->
         <div class="col-lg-4">
             <div class="feature-box" onclick="location.href='/products/list';">
                 <h3> Productos</h3>
@@ -108,7 +115,28 @@
                 <p>Visualiza las órdenes realizadas.</p>
             </div>
         </div>
+
+        <!-- Cartas para crear productos, clientes y órdenes -->
+        <div class="col-lg-4">
+            <div class="feature-box" onclick="location.href='/products/create-form';">
+                <h3>Crear Producto</h3>
+                <p>Añade un nuevo producto a nuestra colección.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="feature-box" onclick="location.href='/customers/create-form';">
+                <h3>Crear Cliente</h3>
+                <p>Registra a un nuevo cliente en nuestra base de datos.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="feature-box" onclick="location.href='/orders/create-form';">
+                <h3>Crear Órden</h3>
+                <p>Realiza una nueva orden de productos.</p>
+            </div>
+        </div>
     </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
