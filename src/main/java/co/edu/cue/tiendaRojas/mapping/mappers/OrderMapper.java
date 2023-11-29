@@ -19,6 +19,7 @@ public class OrderMapper {
                 source.customer(),
                 source.empresa());
     }
+
     public static List<OrderDto> mapFrom(List<Order> sources){
         return sources.parallelStream().map(e-> mapFrom(e)).toList();
     }

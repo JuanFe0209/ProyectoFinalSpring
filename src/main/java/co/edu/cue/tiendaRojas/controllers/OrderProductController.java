@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
 @RequestMapping("/order-products")
 @AllArgsConstructor
@@ -26,7 +25,7 @@ public class OrderProductController {
     @GetMapping("/list")
     public String listOrderProducts(Model model) {
         model.addAttribute("orderProducts", orderProductService.list());
-        return "orderProduct/list";
+        return "orderProduct/index";
     }
 
     @GetMapping("/create-form")
@@ -44,7 +43,7 @@ public class OrderProductController {
     }
 
     @GetMapping("/update-form/{id}")
-    public String updateOrderProductForm(Model model, @PathVariable Long id) {
+    public String updateOrderProductForm(Model model, @PathVariable int id) {
         model.addAttribute("orderProduct", orderProductService.getOrder_ProductById(id));
         model.addAttribute("products", productService.list());
         model.addAttribute("orders", orderService.list());
@@ -58,8 +57,9 @@ public class OrderProductController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteOrderProduct(@PathVariable Long id) {
+    public String deleteOrderProduct(@PathVariable int id) {
         orderProductService.delete(id);
         return "redirect:/order-products/list";
     }
 }
+

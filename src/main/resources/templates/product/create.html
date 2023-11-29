@@ -17,11 +17,10 @@
 </head>
 
 <body>
-
 <div class="container mt-4">
     <h2>Agregar Producto</h2>
-
-    <form th:action="@{create}" th:object="${product}" method="post">
+    <form th:action="@{/products/create}" th:object="${product}" method="post">
+        <input type="hidden" th:field="*{productId}"/>
         <div class="form-group">
             <label for="name">Nombre:</label>
             <input type="text" class="form-control" id="name" th:field="*{name}" required="required"/>

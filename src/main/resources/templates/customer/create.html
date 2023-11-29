@@ -15,7 +15,7 @@
 
 
   <form th:action="@{/customers/create}" method="post" th:object="${customer}">
-
+    <input type="hidden" th:field="*{customerId}"/>
     <div class="form-group">
       <label for="name">Nombre:</label>
       <input type="text" class="form-control" id="name" th:field="*{name}" required>

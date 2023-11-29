@@ -15,11 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 @AllArgsConstructor
 public class ProductController {
 
-    private final ProductService service;
+    private final ProductService productService;
 
     @GetMapping("/list")
-    public String createProduct(Model model){
-        model.addAttribute("productList", service.list());
+    public String listProducts(Model model){
+        model.addAttribute("productList", productService.list());
         return "product/index";
     }
 
@@ -30,25 +30,26 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String createProduct(ProductDto product){
-        service.save(product);
+    public String createProduct(@ModelAttribute("product") ProductDto product){
+        productService.save(product);
         return "redirect:/products/list";
     }
 
     @GetMapping("/edit-form/{id}")
-    public String updateProductForm(Model model, @PathVariable Long id){
-        model.addAttribute("product", service.getProductById(id));
+    public String updateProductForm(Model model, @PathVariable int id){
+        model.addAttribute("product", productService.getProductById(id));
         return "product/update";
     }
 
     @PostMapping("/update")
-    public String updateProduct(ProductDto product){
-        service.update(product);
+    public String updateProduct(@ModelAttribute("product") ProductDto product){
+        productService.update(product);
         return "redirect:/products/list";
     }
+
     @GetMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable Long id){
-        service.delete(id);
+    public String deleteProduct(@PathVariable int id){
+        productService.delete(id);
         return "redirect:/products/list";
     }
 }

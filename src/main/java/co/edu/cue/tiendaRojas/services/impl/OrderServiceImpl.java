@@ -23,7 +23,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderDto getOrderById(Long id) {
+    public OrderDto getOrderById(int id) {
         return OrderMapper.mapFrom(repository.findById(id).orElseThrow());
     }
 
@@ -42,7 +42,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         repository.deleteById(id);
     }
 }

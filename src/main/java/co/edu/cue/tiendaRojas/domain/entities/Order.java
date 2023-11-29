@@ -1,7 +1,9 @@
 package co.edu.cue.tiendaRojas.domain.entities;
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -14,7 +16,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    private Long orderId;
+    private int orderId;
     private LocalDateTime orderDate;
     @ManyToOne
     @JoinColumn(name = "customer_id")

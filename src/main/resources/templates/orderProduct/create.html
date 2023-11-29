@@ -18,6 +18,7 @@
     <h2>Crear Factura</h2>
 
     <form th:action="@{/order-products/create}" th:object="${orderProduct}" method="post">
+        <input type="hidden" th:field="*{id}"/>
         <div class="form-group row">
             <label for="order" class="col-sm-2 col-form-label">Orden:</label>
             <div class="col-sm-10">
